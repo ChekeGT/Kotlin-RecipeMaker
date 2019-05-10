@@ -16,7 +16,7 @@ fun main(){
 
         when (option){
             "1" -> recipes.add(makeRecipe())
-            "2" -> readRecipes()
+            "2" -> readRecipes(recipes)
             "3" -> break@menu
             else -> println("Selecciona una opcion valida.")
         }
@@ -77,4 +77,13 @@ fun selectIngredients(): MutableList<String>{
 
 fun readRecipes(recipes: List<Map<String, Any>>){
 
+    println("Sus recetas son las siguientes.")
+    if (recipes.isEmpty()) println("No tiene recetas, por favor crea una.")
+
+    else {
+        for (recipe in recipes) {
+            println(recipe["name"])
+            println(recipe["ingredients"])
+        }
+    }
 }
